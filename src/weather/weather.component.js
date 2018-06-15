@@ -18,8 +18,6 @@ class Weather extends Component {
       return res.json();
     }).then(data => {
       dataStore = data;
-      let observed = Observable.create(data);
-      observed.subscribe(d => console.log(d));
       let test = JSON.stringify(data);
       this.setState({datastate: test});
       // console.log(data)
