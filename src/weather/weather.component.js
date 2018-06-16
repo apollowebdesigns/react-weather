@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './weather.css';
-import { Observable } from 'rxjs';
+import { from } from 'rxjs';
 
 let dataStore;
 
@@ -18,9 +18,18 @@ class Weather extends Component {
       return res.json();
     }).then(data => {
       dataStore = data;
-      let test = JSON.stringify(data);
-      this.setState({datastate: test});
-      // console.log(data)
+      let result = [];
+      console.log(data);
+      let storageKeys = Object.keys(data);
+      storageKeys.forEach(element => {
+        let test1 = {};
+        test1[element] = data[element];
+        result.push(test1);
+      });
+      console.log(data);
+      let test = JSON.stringify(result);
+      let lastTime = JSON.stringify(result[result.length - 1]);
+      this.setState({datastate: lastTime});
     })
   }
 
