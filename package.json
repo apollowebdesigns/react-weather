@@ -4,8 +4,12 @@
   "private": true,
   "dependencies": {
     "react": "^16.4.1",
+    "react-apollo": "^2.1.5",
     "react-dom": "^16.4.1",
+    "react-foundation": "^0.9.5",
+    "react-redux": "^5.0.7",
     "react-scripts": "1.1.4",
+    "redux": "^4.0.0",
     "rxjs": "^6.2.1"
   },
   "scripts": {
