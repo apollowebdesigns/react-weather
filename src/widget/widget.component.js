@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import './weather.css';
+import './widget.css';
 import { from } from 'rxjs';
-var dice = 3;
-var sides = 6;
+import { Button } from 'react-foundation/lib/components/button';
+import { dispatch } from 'rxjs/internal/observable/pairs';
+// let Badge = Foundation.Badge;
+
 var xhr = new XMLHttpRequest();
 xhr.responseType = 'json';
 xhr.open("POST", "https://us-central1-userddata.cloudfunctions.net/helloWorld/weathergraph");
@@ -20,7 +22,7 @@ xhr.send(JSON.stringify({
 
 let dataStore;
 
-class Weather extends Component {
+class Widget extends Component {
   constructor() {
     super();
     this.state = {
@@ -47,24 +49,12 @@ class Weather extends Component {
     }).then(res => {
       return res.json();
     }).then(data => {
-      dataStore = data;
-      let result = [];
-      data = data.data.weather;
-      console.log(data);
-      data = JSON.parse(data);
-      let storageKeys = Object.keys(data);
-      storageKeys.forEach(element => {
-        let test1 = {};
-        test1[element] = data[element];
-        result.push(test1);
-      });
-      result = data;
-      let result2 = [];
-      result2.push(data);
-      console.log(data);
-      let test = JSON.stringify(result);
-      let lastTime = JSON.stringify(result2[0][0]);
-      this.setState({datastate: lastTime});
+      let result = data.data.weather;
+      result = JSON.parse(result);
+      console.log(result);
+      let first = result[result.length - 1];
+
+      this.setState({datastate: JSON.stringify(first)});
     })
   }
 
@@ -72,11 +62,19 @@ class Weather extends Component {
     return (
       <div className="App">
         weather is here! {this.state.datastate}
+        <button className="button">Hello!</button>
+        <div className="card sizers">
+          <div className="card-divider">
+            <h4>Weather Widget</h4>
+          </div>
+          <img src="http://downloadicons.net/sites/default/files/cloud-logo-icon-22859.png" />
+          <div className="card-section">
+            <p>The latest weather from the flat is:</p>
+          </div>
+        </div>
       </div>
     );
   }
 }
 
-
-
-export default Weather;
+export default Widget;
