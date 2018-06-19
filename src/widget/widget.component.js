@@ -32,36 +32,30 @@ class Widget extends Component {
 
   componentDidMount() {
     this.setState({ isLoading: true });
-    fetch('https://us-central1-userddata.cloudfunctions.net/helloWorld/weathergraph', {
-      body: JSON.stringify({
-        query: query
-      }), // must match 'Content-Type' header
-      cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-      credentials: 'same-origin', // include, same-origin, *omit
-      headers: {
-        'user-agent': 'Mozilla/4.0 MDN Example',
-        'content-type': 'application/json'
-      },
-      method: 'POST', // *GET, POST, PUT, DELETE, etc.
-      mode: 'cors', // no-cors, cors, *same-origin
-      redirect: 'follow', // manual, *follow, error
-      referrer: 'no-referrer', // *client, no-referrer
-    }).then(res => {
-      return res.json();
-    }).then(data => {
-      let result = data.data.weather;
-      result = JSON.parse(result);
+    fetch('https://us-central1-userddata.cloudfunctions.net/helloWorld/weatherdata').then(async(data) => {
+      let result = await data.json();
+      // result = JSON.parse(result); 
+      // result = result.data.weather[0]; 
       console.log(result);
+      result = Object.values(result);
+      // result = JSON.parse(result);
       let first = result[result.length - 1];
-
-      this.setState({datastate: JSON.stringify(first)});
+      let humidity = first.humidity;
+      let temperature = first.temperature;
+      let pressure = first.pressure;
+      this.setState({
+        datastate: JSON.stringify(first),
+        temperature: temperature,
+        pressure: pressure,
+        humidity: humidity
+      });
     })
   }
 
   render() {
     return (
       <div className="App">
-        weather is here! {this.state.datastate}
+        weather is here! 
         <button className="button">Hello!</button>
         <div className="card sizers">
           <div className="card-divider">
@@ -69,7 +63,7 @@ class Widget extends Component {
           </div>
           <img src="http://downloadicons.net/sites/default/files/cloud-logo-icon-22859.png" />
           <div className="card-section">
-            <p>The latest weather from the flat is:</p>
+            <p>The latest weather from the flat is, Temperature: {this.state.temperature} Pressure: {this.state.pressure} Humidity: {this.state.humidity}</p>
           </div>
         </div>
       </div>
