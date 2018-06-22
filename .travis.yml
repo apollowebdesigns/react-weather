@@ -1,0 +1,9 @@
+language: node_js
+node_js:
+- '0.11'
+- '0.10'
+before_deploy: "echo 'ready?'"
+deploy:
+  provider: firebase
+  token:
+    secure: "1/D-HixUt163_k4iHgs5a1ANuV8yOJ2S6tbIPAiPdmcXM"

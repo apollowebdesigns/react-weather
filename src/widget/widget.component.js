@@ -52,6 +52,8 @@ class Widget extends Component {
     })
   }
 
+  test = 'success';
+
   render() {
     return (
       <div className="App">
@@ -59,7 +61,7 @@ class Widget extends Component {
         <button className="button">Hello!</button>
         <div className="card sizers">
           <div className="card-divider">
-            <h4>Weather Widget</h4>
+            <h4>Weather Widget just deployed</h4>
           </div>
           <img src="http://downloadicons.net/sites/default/files/cloud-logo-icon-22859.png" />
           <div className="card-section">
