@@ -8,3 +8,4 @@ deploy:
   provider: firebase
   token:
     secure: "1/D-HixUt163_k4iHgs5a1ANuV8yOJ2S6tbIPAiPdmcXM"
+  project: "build"
