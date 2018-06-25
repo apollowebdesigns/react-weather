@@ -2,21 +2,6 @@ import React, { Component } from 'react';
 import './widget.css';
 // let Badge = Foundation.Badge;
 
-var xhr = new XMLHttpRequest();
-xhr.responseType = 'json';
-xhr.open("POST", "https://us-central1-userddata.cloudfunctions.net/helloWorld/weathergraph");
-xhr.setRequestHeader("Content-Type", "application/json");
-xhr.setRequestHeader("Accept", "application/json");
-xhr.onload = function () {
-  console.log('data returned:', xhr.response);
-}
-var query = `query {
-  weather: weather
-}`;
-xhr.send(JSON.stringify({
-  query: query
-}));
-
 class Widget extends Component {
   constructor() {
     super();
@@ -29,11 +14,8 @@ class Widget extends Component {
     this.setState({ isLoading: true });
     fetch('https://us-central1-userddata.cloudfunctions.net/helloWorld/weatherdata').then(async(data) => {
       let result = await data.json();
-      // result = JSON.parse(result); 
-      // result = result.data.weather[0]; 
       console.log(result);
       result = Object.values(result);
-      // result = JSON.parse(result);
       let first = result[result.length - 1];
       let humidity = first.humidity;
       let temperature = first.temperature;
