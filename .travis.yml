@@ -14,7 +14,7 @@ deploy:
   provider: firebase
   token:
     secure: "1/D-HixUt163_k4iHgs5a1ANuV8yOJ2S6tbIPAiPdmcXM"
-  project: "build"
+  project: "userddata"
   skip_cleanup: true
 after_success:
-  - firebase deploy --token $FIREBASE_TOKEN
+  - firebase deploy --only hosting --token $FIREBASE_TOKEN
