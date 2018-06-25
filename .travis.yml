@@ -1,6 +1,9 @@
 language: node_js
 node_js:
   - '8'
+before_script:
+  - npm test
+  - npm run -g build
 before_deploy: "echo 'ready?'"
 deploy:
   provider: firebase
