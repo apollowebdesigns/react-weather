@@ -8,7 +8,6 @@ before_install:
   - npm install -g firebase-tools
 install:
   - npm install
-before_script:
   - npm run build
 before_deploy: "echo 'ready?'"
 deploy:
@@ -18,4 +17,4 @@ deploy:
   project: "build"
   skip_cleanup: true
 after_success:
-  - firebase deploy --token 1/D-HixUt163_k4iHgs5a1ANuV8yOJ2S6tbIPAiPdmcXM
+  - firebase deploy --token $FIREBASE_TOKEN
