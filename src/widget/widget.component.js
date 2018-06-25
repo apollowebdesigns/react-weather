@@ -58,7 +58,7 @@ class Widget extends Component {
           <div className="card-divider">
             <h4>Weather Widget just</h4>
           </div>
-          <img src="http://downloadicons.net/sites/default/files/cloud-logo-icon-22859.png" alt="no image here today" />
+          <img src="http://downloadicons.net/sites/default/files/cloud-logo-icon-22859.png" alt="cloud" />
           <div className="card-section">
             <p>The latest weather from the flat is, Temperature: {this.state.temperature} Pressure: {this.state.pressure} Humidity: {this.state.humidity}</p>
           </div>
