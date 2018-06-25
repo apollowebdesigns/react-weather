@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import Weather from './weather/weather.component';
 import './App.css';
-import Foundation from 'react-foundation';
-import { Link, Colors } from 'react-foundation';
 import Widget from './widget/widget.component';
 
 class App extends Component {

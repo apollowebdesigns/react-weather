@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import './widget.css';
-import { from } from 'rxjs';
-import { Button } from 'react-foundation/lib/components/button';
-import { dispatch } from 'rxjs/internal/observable/pairs';
 // let Badge = Foundation.Badge;
 
 var xhr = new XMLHttpRequest();
@@ -19,8 +16,6 @@ var query = `query {
 xhr.send(JSON.stringify({
   query: query
 }));
-
-let dataStore;
 
 class Widget extends Component {
   constructor() {
@@ -63,7 +58,7 @@ class Widget extends Component {
           <div className="card-divider">
             <h4>Weather Widget just</h4>
           </div>
-          <img src="http://downloadicons.net/sites/default/files/cloud-logo-icon-22859.png" />
+          <img src="http://downloadicons.net/sites/default/files/cloud-logo-icon-22859.png" alt="no image here today" />
           <div className="card-section">
             <p>The latest weather from the flat is, Temperature: {this.state.temperature} Pressure: {this.state.pressure} Humidity: {this.state.humidity}</p>
           </div>

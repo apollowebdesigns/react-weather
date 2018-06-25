@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import './weather.css';
-import { from } from 'rxjs';
-var dice = 3;
-var sides = 6;
 var xhr = new XMLHttpRequest();
 xhr.responseType = 'json';
 xhr.open("POST", "https://us-central1-userddata.cloudfunctions.net/helloWorld/weathergraph");
@@ -17,8 +14,6 @@ var query = `query {
 xhr.send(JSON.stringify({
   query: query
 }));
-
-let dataStore;
 
 class Weather extends Component {
   constructor() {
@@ -47,7 +42,6 @@ class Weather extends Component {
     }).then(res => {
       return res.json();
     }).then(data => {
-      dataStore = data;
       let result = [];
       data = data.data.weather;
       console.log(data);
@@ -62,7 +56,6 @@ class Weather extends Component {
       let result2 = [];
       result2.push(data);
       console.log(data);
-      let test = JSON.stringify(result);
       let lastTime = JSON.stringify(result2[0][0]);
       this.setState({datastate: lastTime});
     })
