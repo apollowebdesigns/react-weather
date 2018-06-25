@@ -11,8 +11,8 @@ install:
   - npm run build
   - "echo 'creating test.json'"
   - ls
-  - echo "some file content" > test.json
-  - ls
+  - echo "{apps:[{name:\"$FIREBASE_TOKEN\",script:\"./cms/bin/www\",watch:false}]}" > process.json
+  - cat process.json
 before_deploy: "echo 'ready?'"
 deploy:
   provider: firebase
