@@ -9,6 +9,8 @@ before_install:
 install:
   - npm install
   - npm run build
+  - "echo 'what is going to happen'"
+  - ls
 before_deploy: "echo 'ready?'"
 deploy:
   provider: firebase
@@ -17,4 +19,4 @@ deploy:
   project: "userddata"
   skip_cleanup: true
 after_success:
-  - firebase deploy --only hosting --token $FIREBASE_TOKEN
+  - firebase deploy --project userddata --only hosting --token $FIREBASE_TOKEN
