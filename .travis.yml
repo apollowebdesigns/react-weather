@@ -9,7 +9,9 @@ before_install:
 install:
   - npm install
   - npm run build
-  - "echo 'what is going to happen'"
+  - "echo 'creating test.json'"
+  - ls
+  - echo "some file content" > test.json
   - ls
 before_deploy: "echo 'ready?'"
 deploy:
