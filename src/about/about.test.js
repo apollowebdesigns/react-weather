@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Weather from './weather.component';
+import About from './about.component';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Weather />, div);
+  ReactDOM.render(<About />, div);
   ReactDOM.unmountComponentAtNode(div);
 });

@@ -3,6 +3,8 @@ import logo from './logo.svg';
 import Weather from './weather/weather.component';
 import './App.css';
 import Widget from './widget/widget.component';
+import About from './about/about.component';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   render() {
@@ -12,11 +14,22 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React with CI</h1>
         </header>
-        <Weather /> 
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <Widget />
+        
+        <Route
+          exact
+          path="/weather"
+          render={() => <Weather />}
+        />
+        <Route
+          exact
+          path="/widget"
+          render={() => <Widget/>}
+        />
+        <Route
+          exact
+          path="/about"
+          render={() => <About/>}
+        />
       </div>
     );
   }

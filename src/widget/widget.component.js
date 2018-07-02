@@ -14,7 +14,6 @@ class Widget extends Component {
     this.setState({ isLoading: true });
     fetch('https://us-central1-userddata.cloudfunctions.net/helloWorld/weatherdata').then(async(data) => {
       let result = await data.json();
-      console.log(result);
       result = Object.values(result);
       let first = result[result.length - 1];
       let humidity = first.humidity;

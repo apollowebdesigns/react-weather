@@ -14,22 +14,7 @@ class Weather extends Component {
     fetch('https://us-central1-userddata.cloudfunctions.net/helloWorld/weatherdata').then(res => {
       return res.json();
     }).then(data => {
-      let result = [];
-      data = data.data.weather;
-      console.log(data);
-      data = JSON.parse(data);
-      let storageKeys = Object.keys(data);
-      storageKeys.forEach(element => {
-        let test1 = {};
-        test1[element] = data[element];
-        result.push(test1);
-      });
-      result = data;
-      let result2 = [];
-      result2.push(data);
-      console.log(data);
-      let lastTime = JSON.stringify(result2[0][0]);
-      this.setState({datastate: lastTime});
+      this.setState({datastate: JSON.stringify(data)});
     })
   }
 
