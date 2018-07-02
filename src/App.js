@@ -4,6 +4,7 @@ import Weather from './weather/weather.component';
 import './App.css';
 import Widget from './widget/widget.component';
 import About from './about/about.component';
+import Navbar from './navbar/navbar.component';
 import { Route } from 'react-router-dom';
 
 class App extends Component {
@@ -14,7 +15,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React with CI</h1>
         </header>
-        
+        <Navbar />
         <Route
           exact
           path="/weather"

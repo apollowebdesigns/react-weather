@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './widget.css';
-// let Badge = Foundation.Badge;
 
 class Widget extends Component {
   constructor() {
@@ -33,8 +32,6 @@ class Widget extends Component {
   render() {
     return (
       <div className="App">
-        weather is here! 
-        <button className="button">Hello!</button>
         <div className="card sizers">
           <div className="card-divider">
             <h4>Weather Widget just</h4>
