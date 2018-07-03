@@ -1,10 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import { shallow } from 'enzyme';
 
-it('renders without crashing', () => {
-  // const div = document.createElement('div');
-  // ReactDOM.render(<App />, div);
-  // ReactDOM.unmountComponentAtNode(div);
-  console.log('stubbed');
-});
+describe('<App />', () => {
+  it('contains app class', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find('.App').length).toEqual(1);
+  });
+
+  it('should only have one navbar', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find('Navbar').length).toEqual(1);
+  });
+
+  it('should have 3 routes', () => {
+    const wrapper = shallow(<App />);
+    expect(wrapper.find('Route').length).toEqual(3);
+  });
+})
+
