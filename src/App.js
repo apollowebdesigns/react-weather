@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import logo from './sun-icon-md.png';
 import Weather from './weather/weather.component';
 import './App.css';
 import Widget from './widget/widget.component';
@@ -13,7 +13,7 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React with CI</h1>
+          <h1 className="App-title">What's the Weather?</h1>
         </header>
         <Navbar />
         <Route
