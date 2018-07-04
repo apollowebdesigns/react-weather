@@ -14,3 +14,7 @@ You may need this!
 https://hackernoon.com/implementing-basic-component-tests-using-jest-and-enzyme-d1d8788d627a
 
 https://github.com/jackielii/simplest-redux-example/blob/master/index.js
+
+https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi 
+
+https://github.com/zalmoxisus/redux-devtools-extension 
