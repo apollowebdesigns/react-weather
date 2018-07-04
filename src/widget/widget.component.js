@@ -13,8 +13,10 @@ class Widget extends Component {
     this.setState({ isLoading: true });
     fetch('https://us-central1-userddata.cloudfunctions.net/helloWorld/weatherdata').then(async(data) => {
       let result = await data.json();
-      result = Object.values(result);
       let first = result[result.length - 1];
+      let keys = Object.keys(first);
+      let theKey = keys[0];
+      first = first[theKey];
       let humidity = first.humidity;
       let temperature = first.temperature;
       let pressure = first.pressure;
