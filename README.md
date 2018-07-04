@@ -12,3 +12,5 @@ App on firebase for getting weather data
 You may need this!
 
 https://hackernoon.com/implementing-basic-component-tests-using-jest-and-enzyme-d1d8788d627a
+
+https://github.com/jackielii/simplest-redux-example/blob/master/index.js

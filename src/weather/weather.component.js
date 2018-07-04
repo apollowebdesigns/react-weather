@@ -48,7 +48,7 @@ class Weather extends Component {
   constructor() {
     super();
     this.state = {
-      pictures: [],
+      dataSource: [],
     }
   }
 
@@ -58,15 +58,18 @@ class Weather extends Component {
       return res.json();
     }).then(data => {
       this.setState({datastate: JSON.stringify(data)});
+      Object.values(data).forEach(item => console.log(item));
       myDataSource.data.forEach(value => value.value = "100000");
-      this.setState({ isLoading: false });
+      this.setState({ isLoading: false, dataSource: myDataSource });
     })
   }
 
   render() {
+    console.log('the state is');
+    console.log(this.state);
     return (
       <div className="App">
-        <ReactFC {...chartConfigs} />
+        <ReactFC {...chartConfigs} dataSource={this.state.dataSource} />
         weather is here! {this.state.datastate}
       </div>
     );
