@@ -57,13 +57,12 @@ class Weather extends Component {
       return res.json();
     }).then(data => {
       this.setState({datastate: JSON.stringify(data)});
-      let observationData = [];
       myDataSource.data = [];
       for(let i = data.length - 1; i > data.length - 15; i--) {
         let observation = data[i];
         let key = Object.keys(observation)[0];
         let displayedTemperature = observation[key].temperature;
-        let displayedObservation = new Object();
+        let displayedObservation = {};
         displayedObservation.label = key;
         displayedObservation.value = Math.round(displayedTemperature);
         myDataSource.data.push(displayedObservation);
