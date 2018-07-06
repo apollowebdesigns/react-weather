@@ -9,8 +9,7 @@ Charts(FusionCharts);
 let myDataSource = {
   chart: {
     caption: 'Temperatures in the flat',
-    subCaption: 'Top 5 stores in last month by revenue',
-    numberPrefix: '$',
+    subCaption: 'Last 15 reading',
   },
   data: [
     {
@@ -58,19 +57,40 @@ class Weather extends Component {
       return res.json();
     }).then(data => {
       this.setState({datastate: JSON.stringify(data)});
-      myDataSource.data.forEach(item => {
-        item.key = "2018-05-30T08:00:45";
-        item.value = "100000";
-      });
+      let observationData = [];
+      myDataSource.data = [];
+      for(let i = data.length - 1; i > data.length - 15; i--) {
+        let observation = data[i];
+        let key = Object.keys(observation)[0];
+        let displayedTemperature = observation[key].temperature;
+        let displayedObservation = new Object();
+        displayedObservation.label = key;
+        displayedObservation.value = Math.round(displayedTemperature);
+        myDataSource.data.push(displayedObservation);
+      }
+      myDataSource.data = myDataSource.data.reverse();
+      console.log(myDataSource.data);
+      // data.forEach(observation => {
+      //   let key = Object.keys(observation)[0];
+      //   let displayedTemperature = observation[key].temperature;
+      //   let displayedObservation = new Object();
+      //   displayedObservation.label = key;
+      //   displayedObservation.value = Math.round(displayedTemperature);
+      //   myDataSource.data.push(displayedObservation);
+      // })
+      // myDataSource.data.forEach(item => {
+      //   item.label = "2018-05-30T08:00:45";
+      //   item.value = "100000";
+      // });
       this.setState({ isLoading: false });
     })
   }
 
   render() {
     return (
-      <div className="App">
+      <div className="App row">
         <ReactFC {...chartConfigs} />
-        weather is here! {this.state.datastate}
+        {/* weather is here! {this.state.datastate} */}
       </div>
     );
   }
