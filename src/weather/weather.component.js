@@ -60,31 +60,16 @@ class Weather extends Component {
     }).then(data => {
       this.setState({datastate: JSON.stringify(data)});
       myDataSource.data = [];
-      console.log(data);
       for(let i = 0; i < data.length; i++) {
         let observation = data[i];
         let key = Object.keys(observation)[0];
-        console.log(observation);
         let displayedTemperature = observation[key];
         let displayedObservation = {};
         displayedObservation.label = key;
-        displayedObservation.value = Math.round(displayedTemperature);
+        displayedObservation.value = displayedTemperature.toPrecision(3);
         myDataSource.data.push(displayedObservation);
       }
-      myDataSource.data = myDataSource.data.reverse();
-      console.log(myDataSource.data);
-      // data.forEach(observation => {
-      //   let key = Object.keys(observation)[0];
-      //   let displayedTemperature = observation[key].temperature;
-      //   let displayedObservation = new Object();
-      //   displayedObservation.label = key;
-      //   displayedObservation.value = Math.round(displayedTemperature);
-      //   myDataSource.data.push(displayedObservation);
-      // })
-      // myDataSource.data.forEach(item => {
-      //   item.label = "2018-05-30T08:00:45";
-      //   item.value = "100000";
-      // });
+      myDataSource.data = myDataSource.data;
       this.setState({ isLoading: false });
       chartConfigs.width = this.state.width;
       this.setState({ isLoading: true });
