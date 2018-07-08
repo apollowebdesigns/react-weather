@@ -55,15 +55,17 @@ class Weather extends Component {
     window.addEventListener('resize', this.updateWindowDimensions);
 
     this.setState({ isLoading: true });
-    fetch('https://us-central1-userddata.cloudfunctions.net/helloWorld/weatherdata').then(res => {
+    fetch('https://us-central1-userddata.cloudfunctions.net/helloWorld/dailyaverage').then(res => {
       return res.json();
     }).then(data => {
       this.setState({datastate: JSON.stringify(data)});
       myDataSource.data = [];
-      for(let i = data.length - 1; i > data.length - 15; i--) {
+      console.log(data);
+      for(let i = 0; i < data.length; i++) {
         let observation = data[i];
         let key = Object.keys(observation)[0];
-        let displayedTemperature = observation[key].temperature;
+        console.log(observation);
+        let displayedTemperature = observation[key];
         let displayedObservation = {};
         displayedObservation.label = key;
         displayedObservation.value = Math.round(displayedTemperature);
