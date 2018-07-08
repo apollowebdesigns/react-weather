@@ -34,7 +34,8 @@ class Widget extends Component {
   render() {
     return (
       <div className="App">
-        <div className="card sizers">
+      <div className="row">
+        <div className="card sizers" style={{width: '100%'}}>
           <div className="card-divider">
             <h4>Weather Widget</h4>
           </div>
@@ -43,6 +44,8 @@ class Widget extends Component {
             <p>The latest weather from the flat is: Temperature: {this.state.temperature} Pressure: {this.state.pressure} Humidity: {this.state.humidity}</p>
           </div>
         </div>
+      </div>
+        
       </div>
     );
   }
