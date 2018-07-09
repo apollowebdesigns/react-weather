@@ -35,7 +35,7 @@ class Widget extends Component {
     return (
       <div className="App">
       <div className="row">
-        <div className="card sizers" style={{width: '100%'}}>
+        <div className="card sizers">
           <div className="card-divider">
             <h4>Weather Widget</h4>
           </div>
