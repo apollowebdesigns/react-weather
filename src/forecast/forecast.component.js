@@ -61,8 +61,8 @@ class Forecast extends Component {
       this.setState({datastate: JSON.stringify(data)});
       myDataSource.data = [];
       for(let i = 0; i < data.length; i++) {
-        let observation = data.highestTemperature;
-        let key = data.date;
+        let observation = data[i].highestTemperature;
+        let key = data[i].date;
         let displayedTemperature = observation;
         let displayedObservation = {};
         displayedObservation.label = key;
