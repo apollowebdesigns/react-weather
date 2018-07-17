@@ -14,9 +14,9 @@ describe('<App />', () => {
     expect(wrapper.find('Navbar').length).toEqual(1);
   });
 
-  it('should have 3 routes', () => {
+  it('should have 4 routes', () => {
     const wrapper = shallow(<App />);
-    expect(wrapper.find('Route').length).toEqual(3);
+    expect(wrapper.find('Route').length).toEqual(4);
   });
 })
 
