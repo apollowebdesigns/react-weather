@@ -1,1 +1,62 @@
 # extends: airbnb
+# parser: babel-eslint
+# rules:
+#   consistent-return: 0
+#   comma-dangle: 0
+#   curly:
+#     - 2
+#     - multi-or-nest
+#   func-names: 2
+#   func-style:
+#     - 2
+#     - declaration
+#     - allowArrowFunctions: true
+#   indent:
+#     - 2
+#     - 2
+#     - SwitchCase: 1
+#   max-len:
+#     - 2
+#     - code: 100
+#       tabWidth: 4
+#   no-plusplus:
+#     - 2
+#     - allowForLoopAfterthoughts: true
+#   no-bitwise:
+#     - 2
+#     - allow: ["~"]
+#   no-param-reassign:
+#     - 2
+#     - props: false
+#   react/prefer-stateless-function:
+#     - 2
+#     - ignorePureComponents: true
+#   react/jsx-curly-spacing: 0
+#   yoda: 0
+#   react/jsx-closing-bracket-location: 0
+
+#   jsx-a11y/no-static-element-interactions: 0
+#   react/no-array-index-key: 0
+
+#   new-cap: 0
+#   no-console: 0
+#   no-confusing-arrow: 0
+#   padded-blocks: 0
+#   semi:
+#     - 2
+#     - always
+#   react/jsx-indent-props:
+#     - 2
+#     - 2
+#   react/no-is-mounted: 2
+#   react/prefer-es6-class: 2
+#   react/jsx-handler-names: 2
+#   react/jsx-no-bind: 2
+#   react/jsx-no-duplicate-props: 2
+#   react/jsx-pascal-case: 2
+# plugins:
+#   - react
+# env:
+#   mocha: true
+#   browser: true
+#   node: true
