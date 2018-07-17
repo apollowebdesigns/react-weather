@@ -8,8 +8,8 @@ Charts(FusionCharts);
 
 let myDataSource = {
   chart: {
-    caption: 'Temperatures in the flat',
-    subCaption: 'Last 15 reading',
+    caption: 'Temperature Forecast',
+    subCaption: 'Next 5 days Highest',
   },
   data: [
     {
