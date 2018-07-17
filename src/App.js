@@ -6,6 +6,7 @@ import Widget from './widget/widget.component';
 import About from './about/about.component';
 import Navbar from './navbar/navbar.component';
 import { Route } from 'react-router-dom';
+import Forecast from './forecast/forecast.component';
 
 class App extends Component {
   render() {
@@ -25,6 +26,11 @@ class App extends Component {
           exact
           path="/widget"
           render={() => <Widget/>}
+        />
+        <Route
+          exact
+          path="/forecast"
+          render={() => <Forecast/>}
         />
         <Route
           exact
