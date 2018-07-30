@@ -60,7 +60,7 @@ class Weather extends Component {
     }).then(data => {
       this.setState({datastate: JSON.stringify(data)});
       myDataSource.data = [];
-      for(let i = 0; i < data.length; i++) {
+      for(let i = data.length - 1; i < data.length - 7; i--) {
         let observation = data[i];
         let key = Object.keys(observation)[0];
         let displayedTemperature = observation[key];
@@ -69,6 +69,8 @@ class Weather extends Component {
         displayedObservation.value = displayedTemperature.toPrecision(3);
         myDataSource.data.push(displayedObservation);
       }
+      // reversing data as the -- reverses the data dates the wrong way
+      myDataSource.data = myDataSource.data.reverse();
       myDataSource.data = myDataSource.data;
       this.setState({ isLoading: false });
       chartConfigs.width = this.state.width;
