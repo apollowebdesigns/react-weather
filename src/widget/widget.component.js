@@ -20,11 +20,13 @@ class Widget extends Component {
       let humidity = first.humidity;
       let temperature = first.temperature;
       let pressure = first.pressure;
+      let pitemperature = first.pitemperature;
       this.setState({
         datastate: JSON.stringify(first),
         temperature: temperature,
         pressure: pressure,
-        humidity: humidity
+        humidity: humidity,
+        pitemperature: pitemperature
       });
     })
   }
@@ -41,7 +43,7 @@ class Widget extends Component {
           </div>
           <img src="http://downloadicons.net/sites/default/files/cloud-logo-icon-22859.png" alt="cloud" />
           <div className="card-section">
-            <p>The latest weather from the flat is: Temperature: {this.state.temperature} Pressure: {this.state.pressure} Humidity: {this.state.humidity}</p>
+            <p>The latest weather from the flat is: Temperature: {this.state.temperature} Pressure: {this.state.pressure} Humidity: {this.state.humidity} Pi Temperature: {this.state.pitemperature}</p>
           </div>
         </div>
       </div>
